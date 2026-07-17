@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Receipt Pad">
+<meta name="theme-color" content="#16181d">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Receipt%20Pad%22%2C%20%22short_name%22%3A%20%22Receipt%20Pad%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22scope%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%2316181d%22%2C%20%22theme_color%22%3A%20%22%2316181d%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAOBUlEQVR4nO3dzVEbSxiG0cFFDC5vnBAZkAwLkiEDEvLG5SR8F7dkY8Egjeanv%2B73nLUt9TRV%2Bh71CHE3UdLXb99/t14DwFZ%2B/fxx13oN/MsPpBEDHuAvgXA8G34Awx5gOVGwL5u7AwMfYHuCYFs2cwMGPsDxBME6Nu9Ghj5AHWJgORu2gKEPUJ8YuI5NusDQB%2BiXGJhnY2YY/ADjEALv2ZA3DH2A8YmB/9mEyeAHSJQeAtEXb/ADkBoCkRdt8ANwLi0Eoi7W4AfgkpQQiLhIgx%2BApUYPgS%2BtF7A3wx%2BAW4w%2BP4atm9F/cAAcZ8TTgOEuyOAHYC8jhcBQtwAMfwD2NNKcGaJkRvqBANCH3k8Duj8BMPwBaKH3%2BdN1APS%2B%2BQD0rec51OXxRc8bDsCYersl0N0JgOEPQEW9zaeuAqC3zQUgS09zqovjip42FACmqf4tgfInAIY/AD2qPr9KB0D1zQOAz1SeY2UDoPKmAcC1qs6zkgFQdbMA4BYV51q5AKi4SQCwVrX5VioAqm0OAGyp0pwrEwCVNgUA9lJl3pUIgCqbAQBHqDD3mgdAhU0AgKO1nn9NA6D1xQNASy3nYLMAMPwBoN08bBIAhj8A/NViLh4eAIY/ALx39Hw8NAAMfwCYd%2BScPCwADH8AuOyoeXlIABj%2BAHC9I%2BZm8%2B8BAACOt3sAePcPAMvtPT93DQDDHwBut%2Bcc3S0ADH8AWG%2BveeozAAAQaJcA8O4fALazx1zdPAAMfwDY3tbzddMAMPwBYD9bzlmfAQCAQJsFgHf/ALC/rebtJgFg%2BAPAcbaYu24BAECg1QHg3T8AHG/t/HUCAACBVgWAd/8A0M6aOXxzABj%2BANDerfPYLQAACHRTAHj3DwB13DKXnQAAQKDFAeDdPwDUs3Q%2BOwEAgECLAsC7fwCoa8mcdgIAAIGuDgDv/gGgvmvntRMAAAh0VQB49w8A/bhmbjsBAIBAAgAAAl0MAMf/ANCfS/PbCQAABPo0ALz7B4B%2BfTbHnQAAQCABAACBZgPA8T8A9G9unjsBAIBAAgAAAn0YAI7/AWAcH811JwAAEEgAAECgdwHg%2BB8AxnM%2B350AAEAgAQAAgQQAAAT6JwDc/weAcb2d804AACCQAACAQAIAAAL9CQD3/wFgfKd57wQAAAIJAAAIJAAAIJAAAIBAd9PkA4AAkMYJAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQKAvvgMAAPI4AQCAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBA960XwJgeX59bLwGG8vLw1HoJDMYJAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACB7lsvALbw8vDUegmEeXx9br0EWMUJAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIH8LgCH4XnaAZZwAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABDovvUCYAsvD0%2Btl0CYx9fn1kuAVZwAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAE8rcAGILvZQdYxgkAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIHuWy8AtvDy8NR6CYR5fH1uvQRYxQkAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgfwuAIfhedoBlnAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEOi%2B9QJgCy8PT62XQJjH1%2BfWS4BVnAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAATytwAYgu9lB1jGCQAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQ6L71AmALLw9PrZcQ5/H1ufUSgBWcAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABPK3ABiC76UHWMYJAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIA7OLl4an1Ev6wlnmV1mMt86qthzEIAHZT4UXrtAZrea/SeqxlXpV1MB4BAACBBAC7avnu5fy5rWX%2B%2Be3Nx89d7ecEWxIA7K7Fi9jcc6av5bPnTd%2BbSmtp%2BbzkEAAc4sgXs0vPlbqWa54vdW8qraXF85FJADCUa184K73AHrWWHq%2B5xzX38jwgADjM3i9sSx%2B/0nqsZbt/v1TPewNrCAAOlfIC1/t19r7%2Ba6VcJ3xEAHC4PV50b33M0dey5nFH35tKa9nzcWGOAKCJLV/s1j7WqGvZ4vFG3ZtKa9nj8eAaAoCubfXCWekF2DXt/zhbGPGayCIAaGa0d2GjvkOttJYtHm/kvYElBABNjfICOMp1zBnl%2Bka5DtiCAKC5W16UK30Qq9Ja1vy/PR7XWrb/f7AVAUB3kn4Xu9rvzC/h57Tdv4c9CABKqPbNcJXWYy3rnydxb%2BASAUAZvX0fe%2Bp31VdayzXPl7w38BkBQClzL5CtXjgrrcda5lVaT6W1wGcEAAAEEgCUc/5OqfU7p0rrsZZ5ldZTaS0wRwBQ0ukFs8oLZ6X1WMu8SuuptBb4yN3Xb99/t14EAHAsJwAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBvvz6%2BeOu9SIAgGM5AQCAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAj0ZZqmyXcBAECOXz9/3DkBAIBAAgAAAgkAAAgkAAAg0J8A8EFAABjfad47AQCAQAIAAAIJAAAI9E8A%2BBwAAIzr7Zx3AgAAgQQAAAQSAAAQ6F0A%2BBwAAIznfL47AQCAQAIAAAJ9GABuAwDAOD6a604AACCQAACAQLMB4DYAAPRvbp47AQCAQAIAAAJ9GgBuAwBAvz6b404AACDQxQBwCgAA/bk0v50AAEAgAQAAga4KALcBAKAf18xtJwAAEOjqAHAKAAD1XTuvnQAAQKBFAeAUAADqWjKnnQAAQKDFAeAUAADqWTqfnQAAQKCbAsApAADUcctcdgIAAIFuDgCnAADQ3q3zeNUJgAgAgHbWzGG3AAAg0OoAcAoAAMdbO3%2BdAABAoE0CwCkAABxni7m72QmACACA/W01b90CAIBAmwaAUwAA2M%2BWc3bzEwARAADb23q%2B7nILQAQAwHb2mKs%2BAwAAgXYLAKcAALDeXvN01xMAEQAAt9tzju5%2BC0AEAMBye89PnwEAgECHBIBTAAC43hFz87ATABEAAJcdNS8PvQUgAgBg3pFz8vDPAIgAAHjv6PnY5EOAIgAA/moxF5v9FoAIAIB287DprwGKAACStZyDzb8HQAQAkKj1/GseANPUfhMA4EgV5l6JAJimGpsBAHurMu/KBMA01dkUANhDpTlXKgCmqdbmAMBWqs23cgEwTfU2CQDWqDjXSgbANNXcLABYquo8KxsA01R30wDgGpXnWOkAmKbamwcAc6rPr9KLO/f12/ffrdcAAJ%2BpPvhPyp8AvNXLpgKQqac51VUATFNfmwtAjt7mU1eLPeeWAACt9Tb4T7o7AXir100HYAw9z6GuA2Ca%2Bt58APrV%2B/zpevHn3BIAYG%2B9D/6T7k8A3hrlhwJATSPNmWEu5JzTAAC2MtLgPxnugs4JAQBuNeLgPxnqFsBHRv7hAbCf0efH0Bd3zmkAAJeMPvhPIi7ynBAA4FzK4D%2BJuthzQgCAtMF/EnnR54QAQJ7UwX8SffHnhADA%2BNIH/4lNmCEGAMZh6L9nQy4QAgD9Mvjn2ZgFxABAfYb%2BdWzSjcQAQB2G/nI2bANiAOB4hv46Nm8HggBgewb%2BtmzmAQQBwHIG/r5sbiOiAOAvw/54/wH0CVKyu5tqnQAAAABJRU5ErkJggg%3D%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%20maskable%22%7D%5D%7D">
+<title>Receipt Pad</title>
+<style>
+  :root {
+    --ink:#16181d; --ink-soft:#5a606a; --paper:#f6f7f4; --panel:#ffffff;
+    --rule:#dfe2db; --rule-soft:#eceee8; --green:#1f7a54; --green-hi:#1a6647;
+    --accent:#37536e; --red:#b23a3a;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; padding:0; }
+  body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.45; -webkit-font-smoothing:antialiased; }
+  .app { max-width:600px; margin:0 auto; min-height:100vh; display:flex; flex-direction:column; }
+
+  header { background:var(--ink); color:#fff; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10; }
+  header .title { font-size:19px; font-weight:650; letter-spacing:-0.01em; display:flex; align-items:center; gap:9px; }
+  header .title .mk { font-family:var(--mono); color:#6fce9f; font-size:15px; }
+  header button.link { background:none; border:none; color:#cdd3da; font-size:15px; padding:8px; }
+
+  main { flex:1; padding:18px; }
+  .view { display:none; } .view.on { display:block; }
+
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-soft); margin:0 0 14px; font-weight:700; }
+  label.fld { display:block; margin-bottom:16px; }
+  label.fld .lb { font-size:14px; color:var(--ink-soft); font-weight:600; margin-bottom:6px; display:block; }
+  input, select, textarea { width:100%; font-family:var(--sans); font-size:17px; padding:13px 14px; border:1.5px solid var(--rule); border-radius:11px; background:var(--panel); color:var(--ink); }
+  input:focus, select:focus, textarea:focus { outline:none; border-color:var(--accent); }
+  .amt-in { font-family:var(--mono); }
+  .big-amt input { font-size:26px; font-family:var(--mono); font-weight:700; text-align:right; }
+
+  .btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; font-family:var(--sans); font-size:18px; font-weight:650; padding:16px; border-radius:13px; border:none; background:var(--green); color:#fff; cursor:pointer; }
+  .btn:active { background:var(--green-hi); }
+  .btn.dark { background:var(--ink); } .btn.dark:active { background:#000; }
+  .btn.ghost { background:var(--panel); color:var(--ink); border:1.5px solid var(--rule); }
+  .btn.ghost:active { background:var(--paper); }
+  .btn.sm { font-size:15px; padding:11px 14px; width:auto; }
+  .btn-row { display:flex; gap:10px; margin-top:8px; } .btn-row .btn { margin:0; }
+  .fab { position:sticky; bottom:16px; margin-top:20px; box-shadow:0 6px 20px rgba(31,122,84,.35); }
+
+  .row-item { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--panel); border:1px solid var(--rule); border-radius:14px; padding:13px 15px; margin-bottom:10px; cursor:pointer; }
+  .row-item:active { background:var(--paper); }
+  .row-item .who { font-weight:650; font-size:17px; }
+  .row-item .sub { font-size:13.5px; color:var(--ink-soft); margin-top:2px; }
+  .row-item .amt { font-family:var(--mono); font-weight:650; font-size:17px; white-space:nowrap; }
+  .row-item .thumb { width:46px; height:46px; border-radius:9px; object-fit:cover; background:var(--rule-soft); flex:none; }
+  .row-item .clip { font-size:12px; color:var(--ink-soft); }
+  .cat-badge { display:inline-block; font-size:11px; font-family:var(--mono); background:#eef2f6; color:var(--accent); border-radius:5px; padding:2px 6px; margin-left:6px; vertical-align:middle; }
+  .vat-badge { background:#e9f4ee; color:var(--green); }
+
+  .empty { text-align:center; color:var(--ink-soft); padding:44px 20px; }
+  .empty .big { font-size:20px; font-weight:650; color:var(--ink); margin-bottom:6px; }
+
+  .photo-box { border:1.5px dashed var(--rule); border-radius:14px; padding:26px; text-align:center; background:var(--panel); margin-bottom:16px; }
+  .photo-box .cam { font-size:40px; }
+  .photo-box .lbl { font-size:16px; font-weight:600; margin-top:6px; }
+  .photo-box .sm { font-size:13px; color:var(--ink-soft); margin-top:2px; }
+  .photo-preview { position:relative; margin-bottom:16px; }
+  .photo-preview img { width:100%; border-radius:14px; border:1px solid var(--rule); display:block; }
+  .photo-preview .retake { position:absolute; top:10px; right:10px; background:rgba(22,24,29,.85); color:#fff; border:none; border-radius:9px; padding:9px 13px; font-size:14px; font-weight:600; }
+
+  .toggle { display:flex; align-items:center; justify-content:space-between; padding:15px 16px; background:var(--panel); border:1.5px solid var(--rule); border-radius:12px; margin-bottom:16px; }
+  .toggle .tx { font-weight:600; } .toggle .tx small { display:block; font-weight:400; color:var(--ink-soft); font-size:13px; margin-top:2px; }
+  .switch { position:relative; width:52px; height:31px; flex:none; }
+  .switch input { opacity:0; width:0; height:0; }
+  .slider { position:absolute; inset:0; background:var(--rule); border-radius:31px; transition:.2s; }
+  .slider:before { content:""; position:absolute; height:25px; width:25px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.3); }
+  .switch input:checked + .slider { background:var(--green); }
+  .switch input:checked + .slider:before { transform:translateX(21px); }
+
+  .hint { font-size:13.5px; color:var(--ink-soft); margin:-6px 0 16px; }
+  .back { background:none; border:none; color:#cdd3da; font-size:16px; padding:0; display:flex; align-items:center; gap:6px; }
+  .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:50; padding:16px; }
+  .lightbox.on { display:flex; } .lightbox img { max-width:100%; max-height:90vh; border-radius:8px; }
+  .lightbox .x { position:absolute; top:16px; right:18px; color:#fff; font-size:30px; background:none; border:none; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <span class="title"><span class="mk">▢</span> Receipt Pad</span>
+    <button class="link" id="menuBtn" onclick="show('menu')">Menu</button>
+  </header>
+  <main>
+
+    <!-- HOME -->
+    <section id="v-home" class="view on">
+      <h2>Your receipts</h2>
+      <div id="rcptList"></div>
+      <button class="btn fab" onclick="newReceipt()">＋  New receipt</button>
+    </section>
+
+    <!-- RECEIPT EDITOR -->
+    <section id="v-receipt" class="view">
+      <button class="back" onclick="show('home')">‹ Receipts</button>
+      <h2 style="margin-top:14px" id="rEditTitle">New receipt</h2>
+
+      <div id="photoZone"></div>
+      <input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none" onchange="onPhoto(event)">
+
+      <label class="fld"><span class="lb">Who from</span>
+        <select id="rSupplier" onchange="onSupplierPick()"></select>
+      </label>
+      <div class="btn-row" style="margin:-8px 0 16px">
+        <button class="btn ghost sm" onclick="editSupplier(null)">＋ Add new supplier</button>
+      </div>
+
+      <label class="fld big-amt"><span class="lb">Total paid (£)</span><input type="text" id="rTotal" inputmode="decimal" placeholder="0.00" oninput="updateVatHint()"></label>
+
+      <label class="fld"><span class="lb">What was it for</span>
+        <select id="rCategory">
+          <option>Materials &amp; supplies</option>
+          <option>Fuel &amp; motor</option>
+          <option>Tools &amp; equipment</option>
+          <option>Subcontractors / labour</option>
+          <option>Protective clothing / PPE</option>
+          <option>Phone &amp; office</option>
+          <option>Insurance</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label class="fld" style="width:50%"><span class="lb">Date</span><input type="date" id="rDate"></label>
+
+      <label class="fld"><span class="lb">VAT on receipt (optional)</span><input type="text" id="rVat" inputmode="decimal" placeholder="leave blank if unsure" class="amt-in" oninput="updateVatHint()"></label>
+      <p class="hint" id="vatHint">Only if you’re VAT registered — copy the VAT figure from the receipt. Otherwise leave it blank.</p>
+
+      <label class="fld"><span class="lb">Note (optional)</span><input type="text" id="rNote" placeholder="e.g. job at 14 Mill Lane"></label>
+
+      <button class="btn" onclick="saveReceipt()">Save receipt</button>
+      <div class="btn-row"><button class="btn ghost" id="rDelBtn" onclick="deleteReceipt()" style="display:none; color:var(--red)">Delete</button></div>
+    </section>
+
+    <!-- SAVED -->
+    <section id="v-saved" class="view">
+      <div class="empty"><div class="big">Receipt saved ✓</div><div id="savedSummary" style="margin-bottom:22px"></div></div>
+      <button class="btn" onclick="newReceipt()">Add another</button>
+      <div class="btn-row"><button class="btn ghost" onclick="show('home')">Done</button></div>
+      <p class="hint" style="margin-top:16px">Keep snapping as you go — then use “Send to bookkeeper” in the Menu to pass them all over.</p>
+    </section>
+
+    <!-- MENU -->
+    <section id="v-menu" class="view">
+      <button class="back" onclick="show('home')">‹ Back</button>
+      <h2 style="margin-top:14px">Menu</h2>
+      <div class="row-item" onclick="show('suppliers')"><span class="who">Suppliers</span><span>›</span></div>
+      <div class="row-item" onclick="doExport()"><span class="who">Send to bookkeeper</span><span>⤴</span></div>
+      <p class="hint" style="margin-top:14px">“Send to bookkeeper” bundles your receipts and their photos into one file for the shared folder. Do it regularly — it’s also your backup.</p>
+    </section>
+
+    <!-- SUPPLIERS -->
+    <section id="v-suppliers" class="view">
+      <button class="back" onclick="show('menu')">‹ Menu</button>
+      <h2 style="margin-top:14px">Suppliers</h2>
+      <div id="supList"></div>
+      <button class="btn fab" onclick="editSupplier(null)">＋  Add supplier</button>
+    </section>
+
+    <!-- SUPPLIER EDITOR -->
+    <section id="v-supplierEdit" class="view">
+      <button class="back" onclick="show('suppliers')">‹ Suppliers</button>
+      <h2 style="margin-top:14px" id="supEditTitle">Add supplier</h2>
+      <label class="fld"><span class="lb">Name</span><input type="text" id="supName" placeholder="e.g. Travis Perkins"></label>
+      <label class="fld"><span class="lb">Usual category</span>
+        <select id="supCategory">
+          <option>Materials &amp; supplies</option><option>Fuel &amp; motor</option><option>Tools &amp; equipment</option>
+          <option>Subcontractors / labour</option><option>Protective clothing / PPE</option><option>Phone &amp; office</option>
+          <option>Insurance</option><option>Other</option>
+        </select>
+      </label>
+      <p class="hint">Picking this supplier on a receipt will fill in the category automatically — you can still change it.</p>
+      <button class="btn" onclick="saveSupplier()">Save supplier</button>
+      <div class="btn-row"><button class="btn ghost" id="supDelBtn" onclick="deleteSupplier()" style="display:none; color:var(--red)">Delete</button></div>
+    </section>
+
+  </main>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('on')"><button class="x">×</button><img id="lightboxImg" alt="receipt"></div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+
+/* ---------- storage: metadata in localStorage, photos in IndexedDB ---------- */
+const K = { sup:'receiptpad.suppliers', rcpt:'receiptpad.receipts' };
+function load(k, def){ try{ const v=JSON.parse(localStorage.getItem(k)); return v==null?def:v; }catch{ return def; } }
+function save(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch{ alert('Could not save — phone storage may be full. Send to bookkeeper to back up.'); } }
+
+function idbOpen(){ return new Promise((res,rej)=>{ const r=indexedDB.open('receiptpad',1);
+  r.onupgradeneeded=()=>{ if(!r.result.objectStoreNames.contains('images')) r.result.createObjectStore('images'); };
+  r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); }); }
+async function idbPut(key,val){ const db=await idbOpen(); return new Promise((res,rej)=>{ const t=db.transaction('images','readwrite'); t.objectStore('images').put(val,key); t.oncomplete=()=>res(); t.onerror=()=>rej(t.error); }); }
+async function idbGet(key){ const db=await idbOpen(); return new Promise((res,rej)=>{ const t=db.transaction('images','readonly'); const q=t.objectStore('images').get(key); q.onsuccess=()=>res(q.result||null); q.onerror=()=>rej(q.error); }); }
+async function idbDel(key){ const db=await idbOpen(); return new Promise((res,rej)=>{ const t=db.transaction('images','readwrite'); t.objectStore('images').delete(key); t.oncomplete=()=>res(); t.onerror=()=>rej(t.error); }); }
+
+let suppliers = load(K.sup, []);
+let receipts = load(K.rcpt, []);
+let editing = null;            // working receipt
+let editingSupplierId = null;
+let pendingImage = null;       // dataURL captured but not yet saved
+
+/* ---------- helpers ---------- */
+function money(n){ return '£' + (Number(n)||0).toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+function todayISO(){ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+function fmtDate(iso){ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; }
+function supById(id){ return suppliers.find(s=>s.id===id)||null; }
+
+function show(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('on'));
+  $('v-'+v).classList.add('on');
+  $('menuBtn').style.visibility = (v==='home')?'visible':'hidden';
+  window.scrollTo(0,0);
+  if(v==='home') renderReceipts();
+  if(v==='suppliers') renderSuppliers();
+}
+
+/* ---------- image capture + compression ---------- */
+function compressImage(file, maxDim, quality){
+  return new Promise((resolve,reject)=>{
+    const img=new Image(); const url=URL.createObjectURL(file);
+    img.onload=()=>{ URL.revokeObjectURL(url);
+      let w=img.width, h=img.height; const scale=Math.min(1, maxDim/Math.max(w,h));
+      w=Math.round(w*scale); h=Math.round(h*scale);
+      const c=document.createElement('canvas'); c.width=w; c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      try { resolve(c.toDataURL('image/jpeg', quality)); } catch(e){ reject(e); }
+    };
+    img.onerror=()=>{ URL.revokeObjectURL(url); reject(new Error('bad image')); };
+    img.src=url;
+  });
+}
+async function onPhoto(ev){
+  const file = ev.target.files && ev.target.files[0]; if(!file) return;
+  try {
+    pendingImage = await compressImage(file, 1100, 0.6);
+    renderPhotoZone();
+  } catch(e){ alert('Sorry, could not read that photo — try again.'); }
+  ev.target.value = '';
+}
+function renderPhotoZone(){
+  const z=$('photoZone');
+  if(pendingImage){
+    z.innerHTML = `<div class="photo-preview"><img src="${pendingImage}" alt="receipt"><button class="retake" onclick="$('photoInput').click()">Retake</button></div>`;
+  } else {
+    z.innerHTML = `<div class="photo-box" onclick="$('photoInput').click()"><div class="cam">📷</div><div class="lbl">Take a photo of the receipt</div><div class="sm">or choose one from your photos</div></div>`;
+  }
+}
+
+/* ---------- receipt list ---------- */
+async function renderReceipts(){
+  const el=$('rcptList');
+  if(!receipts.length){ el.innerHTML=`<div class="empty"><div class="big">No receipts yet</div>Tap “New receipt”, snap it, done.</div>`; return; }
+  const sorted=[...receipts].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  el.innerHTML = sorted.map(r=>`
+    <div class="row-item" onclick="openReceipt('${r.id}')">
+      ${r.hasImage?`<img class="thumb" id="thumb-${r.id}" alt="">`:`<span class="thumb" style="display:grid;place-items:center;color:var(--ink-soft)">▢</span>`}
+      <div style="flex:1"><div class="who">${esc(r.supplier||'—')}</div>
+        <div class="sub">${fmtDate(r.date)} · ${esc(r.category||'')}${r.vat?` <span class="cat-badge vat-badge">VAT ${money(r.vat)}</span>`:''}</div></div>
+      <div class="amt">${money(r.total)}</div>
+    </div>`).join('');
+  // lazy-load thumbnails from IndexedDB
+  sorted.filter(r=>r.hasImage).forEach(async r=>{ try{ const img=await idbGet(r.id); const el2=$('thumb-'+r.id); if(img&&el2) el2.src=img; }catch{} });
+}
+
+/* ---------- receipt editor ---------- */
+function supplierOptions(selId){
+  return ['<option value="">— choose supplier —</option>']
+    .concat(suppliers.map(s=>`<option value="${s.id}" ${s.id===selId?'selected':''}>${esc(s.name)}</option>`)).join('');
+}
+function newReceipt(){
+  editing={ id:null, supplierId:'', supplier:'', date:todayISO(), total:0, vat:0, category:'Materials & supplies', note:'', hasImage:false };
+  pendingImage=null;
+  $('rEditTitle').textContent='New receipt'; $('rDelBtn').style.display='none';
+  hydrateReceipt(); show('receipt');
+}
+async function openReceipt(id){
+  const r=receipts.find(x=>x.id===id); if(!r) return;
+  editing=JSON.parse(JSON.stringify(r));
+  pendingImage = r.hasImage ? (await idbGet(id).catch(()=>null)) : null;
+  $('rEditTitle').textContent='Receipt'; $('rDelBtn').style.display='block';
+  hydrateReceipt(); show('receipt');
+}
+function hydrateReceipt(){
+  $('rSupplier').innerHTML=supplierOptions(editing.supplierId);
+  $('rDate').value=editing.date; $('rTotal').value=editing.total||''; $('rVat').value=editing.vat||'';
+  $('rCategory').value=editing.category||'Materials & supplies'; $('rNote').value=editing.note||'';
+  renderPhotoZone(); updateVatHint();
+}
+function onSupplierPick(){
+  const id=$('rSupplier').value; const s=supById(id);
+  editing.supplierId=id; editing.supplier=s?s.name:'';
+  if(s&&s.category){ editing.category=s.category; $('rCategory').value=s.category; }
+}
+function updateVatHint(){
+  const total=parseFloat($('rTotal').value)||0; const vat=parseFloat($('rVat').value)||0;
+  if(vat>0 && total>0){ const net=total-vat; $('vatHint').textContent=`Net ${money(net)} + VAT ${money(vat)} = ${money(total)}.`; }
+  else { $('vatHint').textContent='Only if you’re VAT registered — copy the VAT figure from the receipt. Otherwise leave it blank.'; }
+}
+async function saveReceipt(){
+  if(!editing.supplierId){ alert('Please choose who it was from.'); return; }
+  const total=parseFloat($('rTotal').value)||0;
+  if(total<=0){ alert('Please enter the total paid.'); return; }
+  editing.date=$('rDate').value||todayISO();
+  editing.total=round2(total); editing.vat=round2(parseFloat($('rVat').value)||0);
+  editing.category=$('rCategory').value; editing.note=$('rNote').value.trim();
+  if(!editing.id) editing.id=uid();
+  editing.hasImage = !!pendingImage;
+  // persist image
+  try { if(pendingImage) await idbPut(editing.id, pendingImage); else await idbDel(editing.id); }
+  catch(e){ /* image store failed; keep metadata */ editing.hasImage = !!pendingImage; }
+  const idx=receipts.findIndex(r=>r.id===editing.id);
+  if(idx>=0) receipts[idx]=editing; else receipts.push(editing);
+  save(K.rcpt, receipts);
+  $('savedSummary').innerHTML=`${esc(editing.supplier)} · ${money(editing.total)}<br>${esc(editing.category)}`;
+  show('saved');
+}
+async function deleteReceipt(){
+  if(!editing.id||!confirm('Delete this receipt?')) return;
+  try{ await idbDel(editing.id); }catch{}
+  receipts=receipts.filter(r=>r.id!==editing.id); save(K.rcpt, receipts); show('home');
+}
+function round2(n){ return Math.round((n+Number.EPSILON)*100)/100; }
+
+/* ---------- suppliers ---------- */
+function renderSuppliers(){
+  const el=$('supList');
+  if(!suppliers.length){ el.innerHTML=`<div class="empty"><div class="big">No suppliers yet</div>Add the places you buy from.</div>`; return; }
+  el.innerHTML=[...suppliers].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>`
+    <div class="row-item" onclick="editSupplier('${s.id}')"><div><div class="who">${esc(s.name)}</div><div class="sub">${esc(s.category||'')}</div></div><span>›</span></div>`).join('');
+}
+function editSupplier(id){
+  editingSupplierId=id; const s=id?supById(id):null;
+  $('supEditTitle').textContent=s?'Edit supplier':'Add supplier';
+  $('supName').value=s?s.name:''; $('supCategory').value=s?(s.category||'Materials & supplies'):'Materials & supplies';
+  $('supDelBtn').style.display=s?'block':'none';
+  show('supplierEdit');
+}
+function saveSupplier(){
+  const name=$('supName').value.trim(); if(!name){ alert('Please enter a name.'); return; }
+  const data={ name, category:$('supCategory').value };
+  if(editingSupplierId){ Object.assign(supById(editingSupplierId), data); }
+  else { data.id=uid(); suppliers.push(data); }
+  save(K.sup, suppliers); show('suppliers');
+}
+function deleteSupplier(){
+  if(!editingSupplierId||!confirm('Delete this supplier? Past receipts stay.')) return;
+  suppliers=suppliers.filter(s=>s.id!==editingSupplierId); save(K.sup, suppliers); show('suppliers');
+}
+
+/* ---------- export ---------- */
+async function buildExport(){
+  const out={ app:'ReceiptPad', version:1, exportedAt:new Date().toISOString(),
+    suppliers: suppliers.map(s=>({id:s.id,name:s.name,category:s.category||''})),
+    receipts: [] };
+  for(const r of receipts){
+    let image=null;
+    if(r.hasImage){ try{ image=await idbGet(r.id); }catch{} }
+    out.receipts.push({ id:r.id, supplier:r.supplier, supplierId:r.supplierId, date:r.date, total:r.total||0,
+      vat:r.vat||0, category:r.category||'', note:r.note||'', image });
+  }
+  return out;
+}
+async function doExport(){
+  if(!receipts.length){ alert('No receipts to send yet.'); return; }
+  const data=await buildExport(); const json=JSON.stringify(data);
+  const stamp=todayISO(); const fname=`receipts_${stamp}.json`;
+  const file=new File([json],fname,{type:'application/json'});
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{ await navigator.share({files:[file], title:'Receipts for bookkeeper'}); return; }catch(e){}
+  }
+  const blob=new Blob([json],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  alert('Saved a file: '+fname+'\nPut it in the shared folder for the office.');
+}
+
+/* ---------- escaping ---------- */
+function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+/* ---------- init ---------- */
+renderReceipts();
+</script>
+</body>
+</html>
