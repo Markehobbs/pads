@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Invoice Pad">
+<meta name="theme-color" content="#16181d">
+<link rel="apple-touch-icon" href="data:image/png;base64,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QqzYtLb0GNTUgZ88FT/+6j+XHgNqyw0AACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACChxvjGifnSQ0A32PWJe+Jdn/9Q6THa7l8/8eWYvTBTegygw9wAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJNcY3TsyXHgKu5f1/+ZnYevfu0mPAZSdfOhb/8fm/Lz0GLJobAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACChgdID1NXOm/eUHoErrBhbWXoEeJ2h4WHfJ7rIM089UXqE2nEDAAAJCQAASEgAAEBC3gNwFZ4X1cuGV/fE6thcegy47ML5875P0NXcAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABJqjG+cmC89BADQWW4AACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhPomDx9olB4CAOgsNwAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQn0RET4LAADymDx8oOEGAAASEgAAkJAAAICEBAAAJHQ5ALwREAB636V97wYAABISAACQkAAAgIReFwDeBwAAvevKPe8GAAASEgAAkJAAAICE3hAA3gcAAL1n4X53AwAACQkAAEjoTQPAYwAA6B1vttfdAABAQgIAABK6agB4DAAA3e9q+9wNAAAkJAAAIKG3DACPAQCge73VHncDAAAJXTMA3AIAQPe51v52AwAACQkAAEioqQDwGAAAukcze9sNAAAk1HQAuAUAgPprdl+7AQCAhFoKALcAAFBfrexpNwAAkFDLAeAWAADqp9X97AYAABJaVAC4BQCA+ljMXnYDAAAJLToA3AIAQHmL3cdLugEQAQBQzlL2sEcAAJDQkgPALQAAdN5S968bAABIqC0B4BYAADqnHXu3bTcAIgAAqteufesRAAAk1NYAcAsAANVp555t+w2ACACA9mv3fq3kEYAIAID2qWKveg8AACRUWQC4BQCApatqn1Z6AyACAGDxqtyjlT8CEAEA0Lqq96f3AABAQh0JALcAANC8TuzNjt0AiAAAuLZO7cuOPgIQAQBwdZ3ckx1/D4AIAIA36vR+LPImQBEAAK8psReL/RaACACAcvuw6K8BigAAMiu5B4t/DoAIACCj0vuveABElD8EAOikOuy9WgRARD0OAwCqVpd9V5sAiKjPoQBAFeq052oVABH1OhwAaJe67bfaBUBE/Q4JAJaijnutlgEQUc/DAoBW1XWf1TYAIup7aADQjDrvsVoHQES9Dw8Arqbu+6vWwy00vnFivvQMAPBW6r74L6n9DcCVuuVQAcipm/ZUVwVARHcdLgB5dNt+6qphF/JIAIDSum3xX9J1NwBX6tZDB6A3dPMe6uoAiOjuwwege3X7/unq4RfySACAqnX74r+k628ArtQrXxQA6qmX9kzPvJCF3AYA0C69tPgv6bkXtJAQAGCxenHxX9JTjwDeTC9/8QCoTq/vj55+cQu5DQDgWnp98V+S4kUuJAQAWCjL4r8k1YtdSAgAkG3xX5LyRS8kBADyybr4L0n94hcSAgC9L/viv8QhXIUYAOgdlv4bOZBrEAIA3cvivzoH0wIxAFB/ln5zHNIiiQGA+rD0W+fA2kAMAHSepb80Dq8CggCg/Sz89nKYHSAIAFpn4VfL4RYiCgBeY9l33v8DMDRqfSU5B+UAAAAASUVORK5CYII=">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Invoice%20Pad%22%2C%20%22short_name%22%3A%20%22Invoice%20Pad%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22scope%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%2316181d%22%2C%20%22theme_color%22%3A%20%22%2316181d%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAVRElEQVR4nO3dW4ycZ3nA8Wf26F17fYzXx8VOnNgmiQOBJCQgyKGKCoiTWiooSguVWi5bbirUVmoRiB5uK3FVVaISoJ6EhKDiolIiTkWkUQtJGuIkJI4dO/ba8Xodn72HXiA7ziaOZ3bnm/ebeX4/KRIiCnnmXXmf/77f7NAIaml848R86RkA2mXy8IFG6Rl4PV%2BQQix4gNcIhM5z4B1g2QO0ThRUy%2BFWwMIHaD9B0F4Osw0sfIDOEwRL4/AWydIHqA8x0DoH1gJLH6D%2BxEBzHNI1WPoA3UsMXJ2DuQqLH6B3CIE3ciBXsPQBep8Y%2BDWHEBY/QEbZQyD1i7f4AcgaAilftMUPwELZQiDVi7X4AbiWLCGQ4kVa/AC0qtdDoK/0AFWz/AFYjF7fHz1bN73%2BhQOgc3rxNqDnXpDFD0BVeikEeuoRgOUPQJV6ac/0RMn00hcEgO7Q7bcBXX8DYPkDUEK375%2BuDoBuP3wAuls376GuvL7o5gMHoDd12yOBrrsBsPwBqKNu209dFQDddrgA5NJNe6orriu66UABIKL%2BjwRqfwNg%2BQPQjeq%2Bv2odAHU/PAB4K3XeY7UNgDofGgA0q677rJYBUNfDAoDFqONeq10A1PGQAGCp6rbfahUAdTscAGinOu252gRAnQ4FAKpSl31XiwCoy2EAQCfUYe8VD4A6HAIAdFrp/Vc0AEq/eAAoqeQeLBYAlj8AlNuHRQLA8geA15TYix0PAMsfAN6o0/uxowFg%2BQPA1XVyT3YsACx/ALi2Tu3LjgSA5Q8AzevE3iz%2BOQAAQOdVHgB%2B%2BgeA1lW9PysNAMsfABavyj1aWQBY/gCwdFXtU%2B8BAICEKgkAP/0DQPtUsVfbHgCWPwC0X7v3a1sDwPIHgOq0c896DwAAJNS2APDTPwBUr137ti0BYPkDQOe0Y%2B96BAAACS05APz0DwCdt9T96wYAABJaUgD46R8AylnKHl50AFj%2BAFDeYvexRwAAkNCiAsBP/wBQH4vZy24AACChlgPAT/8AUD%2Bt7mc3AACQUEsB4Kd/AKivVva0GwAASKjpAPDTPwDUX7P72g0AACTUVAD46R8Aukcze9sNAAAkJAAAIKFrBoDrfwDoPtfa324AACChtwwAP/0DQPd6qz3uBgAAEhIAAJDQVQPA9T8AdL%2Br7XM3AACQkAAAgITeNABc/wNA73izve4GAAASEgAAkNAbAsD1PwD0noX73Q0AACQkAAAgIQEAAAm9LgA8/weA3nXlnncDAAAJCQAASEgAAEBClwPA838A6H2X9r0bAABISAAAQEICAAASEgAAkFAjwhsAASAbNwAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQn0%2BAwAA8nEDAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQ0EDpAYB6avT1xcjaFTF63aoYXb8yhletiOFVozG8cjSGx0ZjaGwkBkaGYmDZUAwsG4yB4aHoHx6IRn9f9PX3RaOvLxr9v/4ZY35mNuZm5mJubu61/zw7GzPnLsbFM%2Bfi4unzcfHMpb/OxcVT5%2BLc9Ok4d/zVODt1Ks5NnYqzU6di7uJM4VOB3iEAILnl46tj1fbxGNtyXazcsi7Gtl4XY5vWxsi6sWj0teeSsDE4EH2DS//fuXD6XJw9djJOHZ6KU4ePx6nDU3H65ak4dWQqTh2eitnzF5f%2BL4EkGuMbJ%2BZLDwF0xuj6VbH%2B5rfF2p1bYs2OTbHmho0xtGKk9FjtMT8fp49Ox/S%2ByZjePxkn9h2J6f2TcXL/sZi9IAxgIQEAPWxk3crYfMeNseEdN8T6W7bF6PpVpUfquPn5%2BTh16Hi88szBOP7MwXjlmYMx9auXRQHpCQDoMdftnoit7317bLrjpli9fUPpcWppfnYuTrw4Ga/sfSmO/XJ/TD6%2BL05Pnig9FnSUAIAesObGTbH93tti4v23xPLx1aXH6UqnJ0/E5OP7YvKJF2LyiX1x6vBU6ZGgUgIAutTg8mWx/b7bYscH3x1rdmwqPU7POXN0Og499my8/Nizcfjnv4qZsxdKjwRtJQCgy6zYuCZ2/9b74oYHb4/%2B4Ta8tZ5rmpuZjaP/92Ic%2Bu9n4%2BXHnonp/UdLjwRLJgCgS6y5YWPc/Kl7Y%2BJ9b2/br%2BexON/%2B9N/G%2BZNnSo8BS%2BJzAKDmxjavjT0P/UZsu/fWiEaj9DhAjxAAUFODo8Ox5/ceiJ0fec/lT9QDaBcBADW07b49cfsffjBG1o6VHgXoUQIAamTZ6hVx1xc%2BHlvu2lV6FKDHCQCoia137467/uTjMbxqeelRgAQEABTW6OuLd/7Bg7H7t99XehQgEQEABQ2vHI33fvF3YuPtO0qPAiQjAKCQ5RtWx/1f/WyMbV5XehQgIQEABazeviHu%2B8rvx8g67/IHyhAA0GFrdmyKB/7mczG0YqT0KEBiPl0EOmjV29bH/V/9rOUPFCcAoEOWb1gd9//152J45WjpUQAEAHTC4Mhw3Pulh3yyH1AbAgAq1mg04p4vfjJWbRsvPQrAZQIAKnbrZ%2B7z0b5A7QgAqND6W7fFLb97b%2BkxAN5AAEBFhlaMxHv/9JPR6PPHDKgf35mgIrf/0QdjdP2q0mMAvCkBABXYcNv1ccODt5ceA%2BCqBAC0Wd/gQNz5xx8rPQbAWxIA0GY7P/oe/wc/QO0JAGijobGRuOXTHyg9BsA1CQBoo1s%2Bfa/P%2BQe6ggCANhletTxu%2BvCdpccAaIoAgDbZ9Yl7on94sPQYAE0RANAGg6PDsfMjd5UeA6BpAgDa4PoHb4/B5ctKjwHQNAEAbeDZP9BtBAAs0fht18fKifWlxwBoiQCAJdrxm%2B8uPQJAywZKDwDdrH94MLbevbv0GLU1PzsXJ186FsefOxSnDk/F2WPTcebYyThz7GRcPHM%2BZi/MxOyFizF7fiYafY3oHxyIvqGB6B8aiP7BgegfHohlq1fEstXLY9masVi2enmMrB2L0fWrYuXEdbFs9YrSLxG6lgCAJdjynl0xMDJUeozamJ%2Bfj1eefikOPbo3Dv/8%2BTjxwuGYvTDT3D87FzE3Mxtx9vyCv3Pkqv/M0PJlsXJifYxtXRcrJ9bHul1bY91NW3xNoAkCAJZg2323lR6hFqZfnIxnv/do7P/Rk3H%2B5JmO/XsvnD4Xx54%2BEMeePnD5v2s0GrFq%2B3hct3si1u3aGuO3XR8rNq7p2EzQLQQALFL/0GBseteO0mMUdejRZ%2BKX//7jmHxyX%2BlRLpufn48TLxyJEy8ciee%2B/1hERIxtWReb79gZm%2B64Kcb3bI/%2BId/6wJ8CWKQN77w%2B%2BodyfvLfiReOxP/8w/fjyM%2BfLz1KU149%2BErsPfjT2Pudn0b/0GBsvP2G2HbfbbH17t0%2BvZG0BAAs0uY7d5YeoePm5%2BbiiW88Ek/9yw9jfn6%2B9DiLMnvhYhz82d44%2BLO9MTAyFFvveXtc/8A7YsM7b4hGn1%2BMIg8BAIu0%2BY5cAXDm6HT819/9Wxx9an/pUdpm5uyF2PfwL2Lfw7%2BIZWtWxI0fvjNu/NAdMbJ2rPRoUDkBAIuwfMPqWL5hdekxOubkgaPx8J99Pc4ef7X0KJU5N3Uqnvzmr2833vb%2BW2Lnx%2B6Odbu2lh4LKiMAYBHG92wvPULHnHj%2BcDz8F/8U56dPlx6lI%2BZmZmPfI4/Hvkcej3W7tsbNn/qAz3qgJwkAWITxW7eXHqEjzhydjof//Osd/dW%2BOnll70vxoy9/K9bcuCn2PPRAbLlrV%2BmRoG0EACzC%2Blu2lR6hcrMXLsYPv/KttMv/SlPPvRw//NI3Y%2B1NW2LPQ/eXHgfaQgBAiwZHh2Ns89rSY1Tusa99L6aee7n0GLVy/NmD8YO/%2BkbpMaAt/M4LtGjNjk0RjUbpMSp15PEX4vn//N/SYwAVEgDQorU3bi49QqXmZmbjsa99t/QYQMUEALRozY5NpUeo1LPfezROHjhWegygYgIAWrRy4rrSI1RmbmY2nv72T0qPAXSAAIAWjW3t3QDY98jjcebYydJjAB0gAKAFI%2BtWxuDIcOkxKrP3Oz8tPQLQIQIAWrByy7rSI1Rmev/ROPH84dJjAB0iAKAFvfz5/y/%2B4PHSIwAdJACgBaPjq0uPUJn9P3iy9AhABwkAaMHy9atKj1CJM0en49VDr5QeA%2BggAQAtGO3RAJh8Yl/pEYAOEwDQgpG1Y6VHqMTkEy%2BUHgHoMAEALRheNVp6hEocfepA6RGADhMA0KxGI4bHei8A5mZmPf%2BHhAQANGlo%2BbJo9PfeH5lXDx2P%2Bdm50mMAHdZ7382gIsMrR0qPUImT%2BydLjwAUIACgSQOjvfkRwK8eOl56BKAAAQBNGlzWmwFwbupU6RGAAgQANKl/2WDpESpx7oQAgIwEADRpcGSo9AiVcAMAOQkAaFL/UI/eAEyfLj0CUIAAgCb1DfTmH5fZ8xdLjwAU0Jvf0aACjf7%2B0iNUYvbiTOkRgAIEADSp0dcoPUIl5i7Olh4BKEAAQJN68VMAI9wAQFa9%2BR0NKtBo9OYNgI8BhpwEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQa4xsn5ksPAYvx0X/8QqzYtLb0GNTUgZ88FT/%2B6j%2BXHgNqyw0AACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACChxvjGifnSQ0A32PWJe%2BJdn/9Q6THa7l8/8eWYvTBTegygw9wAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJNcY3TsyXHgKu5f1/%2BZnYevfu0mPAZSdfOhb/8fm/Lz0GLJobAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACChgdID1NXOm/eUHoErrBhbWXoEeJ2h4WHfJ7rIM089UXqE2nEDAAAJCQAASEgAAEBC3gNwFZ4X1cuGV/fE6thcegy47ML5875P0NXcAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABJqjG%2BcmC89BADQWW4AACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhPomDx9olB4CAOgsNwAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQn0RET4LAADymDx8oOEGAAASEgAAkJAAAICEBAAAJHQ5ALwREAB636V97wYAABISAACQkAAAgIReFwDeBwAAvevKPe8GAAASEgAAkJAAAICE3hAA3gcAAL1n4X53AwAACQkAAEjoTQPAYwAA6B1vttfdAABAQgIAABK6agB4DAAA3e9q%2B9wNAAAkJAAAIKG3DACPAQCge73VHncDAAAJXTMA3AIAQPe51v52AwAACQkAAEioqQDwGAAAukcze9sNAAAk1HQAuAUAgPprdl%2B7AQCAhFoKALcAAFBfrexpNwAAkFDLAeAWAADqp9X97AYAABJaVAC4BQCA%2BljMXnYDAAAJLToA3AIAQHmL3cdLugEQAQBQzlL2sEcAAJDQkgPALQAAdN5S968bAABIqC0B4BYAADqnHXu3bTcAIgAAqteufesRAAAk1NYAcAsAANVp555t%2Bw2ACACA9mv3fq3kEYAIAID2qWKveg8AACRUWQC4BQCApatqn1Z6AyACAGDxqtyjlT8CEAEA0Lqq96f3AABAQh0JALcAANC8TuzNjt0AiAAAuLZO7cuOPgIQAQBwdZ3ckx1/D4AIAIA36vR%2BLPImQBEAAK8psReL/RaACACAcvuw6K8BigAAMiu5B4t/DoAIACCj0vuveABElD8EAOikOuy9WgRARD0OAwCqVpd9V5sAiKjPoQBAFeq052oVABH1OhwAaJe67bfaBUBE/Q4JAJaijnutlgEQUc/DAoBW1XWf1TYAIup7aADQjDrvsVoHQES9Dw8Arqbu%2B6vWwy00vnFivvQMAPBW6r74L6n9DcCVuuVQAcipm/ZUVwVARHcdLgB5dNt%2B6qphF/JIAIDSum3xX9J1NwBX6tZDB6A3dPMe6uoAiOjuwwege3X7/unq4RfySACAqnX74r%2Bk628ArtQrXxQA6qmX9kzPvJCF3AYA0C69tPgv6bkXtJAQAGCxenHxX9JTjwDeTC9/8QCoTq/vj55%2BcQu5DQDgWnp98V%2BS4kUuJAQAWCjL4r8k1YtdSAgAkG3xX5LyRS8kBADyybr4L0n94hcSAgC9L/viv8QhXIUYAOgdlv4bOZBrEAIA3cvivzoH0wIxAFB/ln5zHNIiiQGA%2BrD0W%2BfA2kAMAHSepb80Dq8CggCg/Sz89nKYHSAIAFpn4VfL4RYiCgBeY9l33v8DMDRqfSU5B%2BUAAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%20maskable%22%7D%5D%7D">
+<title>Invoice Pad</title>
+<style>
+  :root {
+    --ink:#16181d; --ink-soft:#5a606a; --paper:#f6f7f4; --panel:#ffffff;
+    --rule:#dfe2db; --rule-soft:#eceee8; --green:#1f7a54; --green-hi:#1a6647;
+    --accent:#37536e; --red:#b23a3a;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; padding:0; }
+  body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.45; -webkit-font-smoothing:antialiased; }
+  .app { max-width:600px; margin:0 auto; min-height:100vh; display:flex; flex-direction:column; }
+  header { background:var(--ink); color:#fff; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10; }
+  header .title { font-size:19px; font-weight:650; letter-spacing:-0.01em; display:flex; align-items:center; gap:9px; }
+  header .title .mk { font-family:var(--mono); color:#6fce9f; font-size:14px; }
+  header button.link { background:none; border:none; color:#cdd3da; font-size:15px; padding:8px; }
+  main { flex:1; padding:18px; }
+  .view { display:none; } .view.on { display:block; }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-soft); margin:0 0 14px; font-weight:700; }
+  h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); margin:22px 0 10px; font-weight:700; }
+  label.fld { display:block; margin-bottom:16px; }
+  label.fld .lb { font-size:14px; color:var(--ink-soft); font-weight:600; margin-bottom:6px; display:block; }
+  input, select, textarea { width:100%; font-family:var(--sans); font-size:17px; padding:13px 14px; border:1.5px solid var(--rule); border-radius:11px; background:var(--panel); color:var(--ink); }
+  input:focus, select:focus, textarea:focus { outline:none; border-color:var(--accent); }
+  .amt-in, input[inputmode=decimal], input[inputmode=numeric] { font-family:var(--mono); }
+  .btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; font-family:var(--sans); font-size:18px; font-weight:650; padding:16px; border-radius:13px; border:none; background:var(--green); color:#fff; cursor:pointer; }
+  .btn:active { background:var(--green-hi); }
+  .btn.dark { background:var(--ink); } .btn.dark:active { background:#000; }
+  .btn.ghost { background:var(--panel); color:var(--ink); border:1.5px solid var(--rule); } .btn.ghost:active { background:var(--paper); }
+  .btn.sm { font-size:15px; padding:11px 14px; width:auto; }
+  .btn-row { display:flex; gap:10px; margin-top:8px; } .btn-row .btn { margin:0; }
+  .fab { position:sticky; bottom:16px; margin-top:20px; box-shadow:0 6px 20px rgba(31,122,84,.35); }
+  .row-item { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--panel); border:1px solid var(--rule); border-radius:14px; padding:15px 16px; margin-bottom:10px; cursor:pointer; }
+  .row-item:active { background:var(--paper); }
+  .row-item .who { font-weight:650; font-size:17px; } .row-item .sub { font-size:13.5px; color:var(--ink-soft); margin-top:2px; }
+  .row-item .amt { font-family:var(--mono); font-weight:650; font-size:17px; white-space:nowrap; }
+  .cis-badge { display:inline-block; font-size:11px; font-family:var(--mono); background:#eef2f6; color:var(--accent); border-radius:5px; padding:2px 6px; margin-left:6px; vertical-align:middle; }
+  .empty { text-align:center; color:var(--ink-soft); padding:44px 20px; }
+  .empty .big { font-size:20px; font-weight:650; color:var(--ink); margin-bottom:6px; }
+  /* line item card */
+  .linecard { background:var(--panel); border:1px solid var(--rule); border-radius:13px; padding:12px; margin-bottom:10px; position:relative; }
+  .linecard .del { position:absolute; top:8px; right:8px; background:none; border:none; color:var(--red); font-size:22px; padding:4px 8px; }
+  .linegrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+  .linegrid .mini .lb { font-size:12px; color:var(--ink-soft); font-weight:600; margin-bottom:3px; display:block; }
+  .linegrid input { padding:10px 11px; font-size:15px; }
+  .linetotal { text-align:right; font-family:var(--mono); font-size:13px; color:var(--ink-soft); margin-top:8px; }
+  .addline { background:none; border:1.5px dashed var(--rule); color:var(--ink-soft); border-radius:11px; padding:12px; width:100%; font-size:15px; font-weight:600; }
+  .totals-bar { background:var(--ink); color:#fff; border-radius:13px; padding:14px 16px; margin:18px 0; }
+  .totals-bar .tr { display:flex; justify-content:space-between; font-size:14px; padding:3px 0; color:#cdd3da; }
+  .totals-bar .tr.due { border-top:1px solid #3a4048; margin-top:6px; padding-top:9px; color:#fff; font-weight:700; font-size:19px; }
+  .totals-bar .tr .v { font-family:var(--mono); }
+  .toggle { display:flex; align-items:center; justify-content:space-between; padding:15px 16px; background:var(--panel); border:1.5px solid var(--rule); border-radius:12px; margin-bottom:16px; }
+  .toggle .tx { font-weight:600; } .toggle .tx small { display:block; font-weight:400; color:var(--ink-soft); font-size:13px; margin-top:2px; }
+  .switch { position:relative; width:52px; height:31px; flex:none; }
+  .switch input { opacity:0; width:0; height:0; }
+  .slider { position:absolute; inset:0; background:var(--rule); border-radius:31px; transition:.2s; }
+  .slider:before { content:""; position:absolute; height:25px; width:25px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.3); }
+  .switch input:checked + .slider { background:var(--green); }
+  .switch input:checked + .slider:before { transform:translateX(21px); }
+  .hint { font-size:13.5px; color:var(--ink-soft); margin:-6px 0 16px; }
+  .back { background:none; border:none; color:var(--accent); font-weight:600; font-size:16px; padding:0; display:flex; align-items:center; gap:6px; }
+  .logo-slot { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .logo-slot img { width:66px; height:66px; object-fit:contain; border:1px solid var(--rule); border-radius:10px; background:#fff; padding:4px; }
+  .logo-slot .ph { width:66px; height:66px; border:1.5px dashed var(--rule); border-radius:10px; display:grid; place-items:center; color:var(--ink-soft); font-size:24px; }
+  /* printable invoice */
+  #print-area { display:none; }
+  @media print { body * { visibility:hidden; } #print-area, #print-area * { visibility:visible; } #print-area { display:block; position:absolute; left:0; top:0; width:100%; padding:20px; } .app { display:none; } }
+  .inv-doc { font-family:var(--sans); color:#111; max-width:760px; font-size:13px; }
+  .inv-doc .logos { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+  .inv-doc .logos img { max-height:92px; max-width:200px; object-fit:contain; }
+  .inv-doc .head { display:flex; justify-content:space-between; border-bottom:3px solid #111; padding-bottom:14px; margin-bottom:16px; }
+  .inv-doc h1 { font-size:26px; margin:0 0 6px; }
+  .inv-doc .biz { text-align:right; line-height:1.55; }
+  .inv-doc .biz strong { font-size:16px; }
+  .inv-doc .parties { display:flex; justify-content:space-between; gap:24px; margin-bottom:18px; }
+  .inv-doc .parties .blk strong { display:block; margin-bottom:2px; }
+  .inv-doc .parties .site { text-align:right; }
+  .inv-doc table { width:100%; border-collapse:collapse; margin-bottom:14px; }
+  .inv-doc th { background:#f2f3f0; text-align:right; padding:8px 6px; font-size:11px; border-bottom:1.5px solid #111; }
+  .inv-doc th.l, .inv-doc td.l { text-align:left; }
+  .inv-doc td { padding:9px 6px; border-bottom:1px solid #e3e3e0; text-align:right; }
+  .inv-doc .totals { width:270px; margin-left:auto; }
+  .inv-doc .totals .tr { display:flex; justify-content:space-between; padding:5px 6px; }
+  .inv-doc .totals .tr.due { border-top:3px double #111; font-weight:700; font-size:16px; margin-top:4px; padding-top:9px; }
+  .inv-doc .notes { margin-top:26px; border-top:1px solid #ddd; padding-top:12px; color:#333; white-space:pre-line; }
+  .inv-doc .status { display:inline-block; padding:2px 9px; border-radius:5px; font-weight:700; font-size:12px; }
+  .inv-doc .status.unpaid { background:#fbeeee; color:#b23a3a; } .inv-doc .status.paid { background:#eef7f1; color:#1f7a54; }
+  .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:50; padding:16px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <span class="title"><span class="mk">£</span> Invoice Pad</span>
+    <button class="link" id="menuBtn" onclick="show('menu')">Menu</button>
+  </header>
+  <main>
+
+    <!-- HOME -->
+    <section id="v-home" class="view on">
+      <h2>Your invoices</h2>
+      <div id="invList"></div>
+      <button class="btn fab" onclick="newInvoice()">＋  New invoice</button>
+    </section>
+
+    <!-- INVOICE EDITOR -->
+    <section id="v-invoice" class="view">
+      <button class="back" onclick="show('home')">‹ Invoices</button>
+      <h2 style="margin-top:14px" id="invEditTitle">New invoice</h2>
+
+      <label class="fld"><span class="lb">Customer</span><select id="invCustomer" onchange="onCustomerPick()"></select></label>
+      <div class="btn-row" style="margin:-8px 0 16px"><button class="btn ghost sm" onclick="editCustomer(null)">＋ Add new customer</button></div>
+
+      <div style="display:flex; gap:10px">
+        <label class="fld" style="flex:1"><span class="lb">Date</span><input type="date" id="invDate"></label>
+        <label class="fld" style="width:120px"><span class="lb">No.</span><input type="text" id="invNo" inputmode="numeric"></label>
+      </div>
+      <div style="display:flex; gap:10px">
+        <label class="fld" style="flex:1"><span class="lb">Due date (optional)</span><input type="date" id="invDue"></label>
+        <label class="fld" style="flex:1"><span class="lb">Your ref (optional)</span><input type="text" id="invRef"></label>
+      </div>
+      <label class="fld"><span class="lb">Site / job address (optional)</span><textarea id="invSite" rows="2" placeholder="if different from the customer's address"></textarea></label>
+
+      <h3>Work done</h3>
+      <div id="invLines"></div>
+      <button class="addline" onclick="addLine()">＋ Add another line</button>
+
+      <div class="totals-bar" id="totalsBar"></div>
+
+      <label class="fld"><span class="lb">Note (optional)</span><input type="text" id="invNote" placeholder="e.g. thank you"></label>
+      <div class="toggle"><span class="tx">Mark as paid<small>Leave off until it’s been paid</small></span><label class="switch"><input type="checkbox" id="invPaid"><span class="slider"></span></label></div>
+
+      <button class="btn" onclick="saveInvoice()">Save invoice</button>
+      <div class="btn-row"><button class="btn ghost" id="invDelBtn" onclick="deleteInvoice()" style="display:none; color:var(--red)">Delete</button></div>
+    </section>
+
+    <!-- SAVED -->
+    <section id="v-saved" class="view">
+      <div class="empty"><div class="big">Invoice saved ✓</div><div id="savedSummary" style="margin-bottom:22px"></div></div>
+      <button class="btn dark" onclick="printCurrent()">Share / Print invoice</button>
+      <div class="btn-row"><button class="btn ghost" onclick="copyInvoiceText()">Copy as text</button><button class="btn ghost" onclick="show('home')">Done</button></div>
+      <p class="hint" style="margin-top:16px">“Share / Print” opens your phone’s share sheet — save as PDF or send straight to the customer.</p>
+    </section>
+
+    <!-- MENU -->
+    <section id="v-menu" class="view">
+      <button class="back" onclick="show('home')">‹ Back</button>
+      <h2 style="margin-top:14px">Menu</h2>
+      <div class="row-item" onclick="show('customers')"><span class="who">Customers</span><span>›</span></div>
+      <div class="row-item" onclick="show('settings')"><span class="who">Your details &amp; logos</span><span>›</span></div>
+      <div class="row-item" onclick="doExport()"><span class="who">Send to bookkeeper</span><span>⤴</span></div>
+      <p class="hint" style="margin-top:14px">“Send to bookkeeper” makes a data file of your invoices for the shared folder — do it regularly, it’s also your backup.</p>
+    </section>
+
+    <!-- CUSTOMERS -->
+    <section id="v-customers" class="view">
+      <button class="back" onclick="show('menu')">‹ Menu</button>
+      <h2 style="margin-top:14px">Customers</h2>
+      <div id="custList"></div>
+      <button class="btn fab" onclick="editCustomer(null)">＋  Add customer</button>
+    </section>
+
+    <!-- CUSTOMER EDITOR -->
+    <section id="v-customerEdit" class="view">
+      <button class="back" onclick="cancelCustomer()">‹ Back</button>
+      <h2 style="margin-top:14px" id="custEditTitle">Add customer</h2>
+      <label class="fld"><span class="lb">Name</span><input type="text" id="custName" placeholder="e.g. ACME Builders Ltd"></label>
+      <label class="fld"><span class="lb">Phone (optional)</span><input type="tel" id="custPhone"></label>
+      <label class="fld"><span class="lb">Address (optional)</span><textarea id="custAddress" rows="2"></textarea></label>
+      <div class="toggle"><span class="tx">This customer deducts CIS tax<small>On for contractors, off for homeowners</small></span><label class="switch"><input type="checkbox" id="custCis" onchange="toggleCisRate()"><span class="slider"></span></label></div>
+      <label class="fld" id="cisRateWrap" style="display:none"><span class="lb">Deduction rate</span><select id="custCisRate"><option value="0.2">20% — registered</option><option value="0.3">30% — not registered</option></select></label>
+      <button class="btn" onclick="saveCustomer()">Save customer</button>
+      <div class="btn-row"><button class="btn ghost" id="custDelBtn" onclick="deleteCustomer()" style="display:none; color:var(--red)">Delete customer</button></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="v-settings" class="view">
+      <button class="back" onclick="show('menu')">‹ Menu</button>
+      <h2 style="margin-top:14px">Your details &amp; logos</h2>
+      <p class="hint">These appear on every invoice.</p>
+      <label class="fld"><span class="lb">Your name / business</span><input type="text" id="bizName" placeholder="e.g. Joe Weale - Rexandflex"></label>
+      <label class="fld"><span class="lb">Address</span><textarea id="bizAddress" rows="2"></textarea></label>
+      <div style="display:flex; gap:10px">
+        <label class="fld" style="flex:1"><span class="lb">Phone</span><input type="tel" id="bizPhone"></label>
+        <label class="fld" style="flex:1"><span class="lb">Email</span><input type="email" id="bizEmail"></label>
+      </div>
+      <label class="fld"><span class="lb">UTR (optional)</span><input type="text" id="bizUtr" inputmode="numeric"></label>
+
+      <h3>Trade registration (optional)</h3>
+      <div style="display:flex; gap:10px">
+        <label class="fld" style="flex:1"><span class="lb">Gas Safe Reg No.</span><input type="text" id="bizGasSafe"></label>
+        <label class="fld" style="flex:1"><span class="lb">ID Card No.</span><input type="text" id="bizIdCard"></label>
+      </div>
+
+      <h3>Logos</h3>
+      <p class="hint">Add up to two — e.g. an accreditation logo and your own business logo. They sit at the top of the invoice.</p>
+      <div class="logo-slot"><span id="logo1prev"></span><div><button class="btn ghost sm" onclick="$('logo1input').click()">Choose logo 1 (left)</button> <button class="btn ghost sm" id="logo1clear" onclick="clearLogo(1)" style="display:none">Remove</button></div></div>
+      <div class="logo-slot"><span id="logo2prev"></span><div><button class="btn ghost sm" onclick="$('logo2input').click()">Choose logo 2 (right)</button> <button class="btn ghost sm" id="logo2clear" onclick="clearLogo(2)" style="display:none">Remove</button></div></div>
+      <input type="file" id="logo1input" accept="image/*" style="display:none" onchange="onLogo(event,1)">
+      <input type="file" id="logo2input" accept="image/*" style="display:none" onchange="onLogo(event,2)">
+
+      <h3>VAT</h3>
+      <div class="toggle"><span class="tx">VAT registered<small>Turn on only if you’re VAT registered</small></span><label class="switch"><input type="checkbox" id="bizVatReg" onchange="toggleVatReg()"><span class="slider"></span></label></div>
+      <label class="fld" id="vatNoWrap" style="display:none"><span class="lb">VAT number</span><input type="text" id="bizVatNo"></label>
+
+      <h3>Bank details (shown on invoice for payment)</h3>
+      <label class="fld"><span class="lb">Account name</span><input type="text" id="bizBankName"></label>
+      <div style="display:flex; gap:10px">
+        <label class="fld" style="width:130px"><span class="lb">Sort code</span><input type="text" id="bizBankSort" inputmode="numeric" placeholder="00-00-00"></label>
+        <label class="fld" style="flex:1"><span class="lb">Account no.</span><input type="text" id="bizBankAcc" inputmode="numeric"></label>
+      </div>
+
+      <button class="btn" onclick="saveSettings()">Save</button>
+    </section>
+  </main>
+</div>
+<div id="print-area"></div>
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'"></div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const K = { biz:'invoicepad.business', cust:'invoicepad.customers', inv:'invoicepad.invoices', ctr:'invoicepad.counter' };
+function load(k, def){ try{ const v=JSON.parse(localStorage.getItem(k)); return v==null?def:v; }catch{ return def; } }
+function save(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch{ alert('Could not save — phone storage may be full. Send to bookkeeper to back up.'); } }
+function round2(n){ return Math.round(((Number(n)||0)+Number.EPSILON)*100)/100; }
+function money(n){ return '£' + round2(n).toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+function todayISO(){ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+function fmtDate(iso){ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; }
+
+/* ---- defaults + migration ---- */
+const BIZ_DEFAULT = { name:'', phone:'', address:'', email:'', utr:'', gasSafeNo:'', idCardNo:'', vatRegistered:false, vatNumber:'', bankName:'', bankSort:'', bankAccount:'', logo1:'', logo2:'' };
+function loadBiz(){ return Object.assign({}, BIZ_DEFAULT, load(K.biz, {})); }
+function migrateInvoice(inv){
+  if(inv._v===2) return inv;
+  const oldStyle = inv.lines && inv.lines[0] && inv.lines[0].unitPrice===undefined && inv.lines[0].amount!==undefined;
+  if(oldStyle){
+    const rate = inv.cisRate||0.2; const cisOn = !!inv.cis;
+    inv.lines = inv.lines.map(l=>({ desc:l.desc||(l.type==='materials'?'Materials':'Labour'), qty:1, unitPrice:round2(l.amount), vatRate:0, cisRate:(cisOn && l.type!=='materials')?rate:0 }));
+  }
+  if(!inv.lines) inv.lines=[{desc:'',qty:1,unitPrice:0,vatRate:0,cisRate:0}];
+  inv.ref = inv.ref||''; inv.dueDate = inv.dueDate||''; inv.siteAddress = inv.siteAddress||''; inv.paid = !!inv.paid;
+  inv._v = 2;
+  return inv;
+}
+
+let biz = loadBiz();
+let customers = load(K.cust, []);
+let invoices = (load(K.inv, [])||[]).map(migrateInvoice);
+let counter = load(K.ctr, 1000);
+let editing=null, editingCustomerId=null, lastSaved=null, custReturn='customers';
+
+/* ---- navigation ---- */
+function show(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('on'));
+  $('v-'+v).classList.add('on');
+  $('menuBtn').style.visibility=(v==='home')?'visible':'hidden';
+  window.scrollTo(0,0);
+  if(v==='home') renderInvoices();
+  if(v==='customers') renderCustomers();
+  if(v==='settings') loadSettings();
+}
+
+/* ---- calculations ---- */
+function lineCalc(l){ const net=round2((Number(l.qty)||0)*(Number(l.unitPrice)||0)); const vat=round2(net*(Number(l.vatRate)||0)); const cis=round2(net*(Number(l.cisRate)||0)); return { net, vat, cis, total:round2(net+vat-cis) }; }
+function invoiceTotals(inv){ let subtotal=0,vatTotal=0,cisTotal=0; inv.lines.forEach(l=>{ const c=lineCalc(l); subtotal+=c.net; vatTotal+=c.vat; cisTotal+=c.cis; }); subtotal=round2(subtotal); vatTotal=round2(vatTotal); cisTotal=round2(cisTotal); return { subtotal, vatTotal, cisTotal, amountDue:round2(subtotal+vatTotal-cisTotal) }; }
+
+/* ---- invoice list ---- */
+function renderInvoices(){
+  const el=$('invList');
+  if(!invoices.length){ el.innerHTML=`<div class="empty"><div class="big">No invoices yet</div>Tap “New invoice” to make your first one.</div>`; return; }
+  const sorted=[...invoices].sort((a,b)=>(b.date||'').localeCompare(a.date||'')||String(b.number).localeCompare(String(a.number)));
+  el.innerHTML=sorted.map(inv=>{ const t=invoiceTotals(inv); const anyCis=inv.lines.some(l=>Number(l.cisRate)>0);
+    return `<div class="row-item" onclick="openInvoice('${inv.id}')">
+      <div><div class="who">${esc(inv.customerName||'—')}${anyCis?'<span class="cis-badge">CIS</span>':''}</div>
+        <div class="sub">No. ${esc(inv.number)} · ${fmtDate(inv.date)}${inv.paid?' · paid':''}</div></div>
+      <div class="amt">${money(t.amountDue)}</div></div>`; }).join('');
+}
+
+/* ---- invoice editor ---- */
+function customerOptions(sel){ return ['<option value="">— choose customer —</option>'].concat(customers.map(c=>`<option value="${c.id}" ${c.id===sel?'selected':''}>${esc(c.name)}</option>`)).join(''); }
+function custById(id){ return customers.find(c=>c.id===id)||null; }
+function defaultCisRate(){ const c=custById(editing.customerId); return (c&&c.cis)?(c.cisRate||0.2):0; }
+function blankLine(){ return { desc:'', qty:1, unitPrice:0, vatRate:0, cisRate:defaultCisRate() }; }
+function newInvoice(){
+  editing={ id:null, number:String(counter), ref:'', date:todayISO(), dueDate:'', customerId:'', customerName:'', siteAddress:'', paid:false, lines:[{desc:'',qty:1,unitPrice:0,vatRate:0,cisRate:0}], note:'', _v:2 };
+  $('invEditTitle').textContent='New invoice'; $('invDelBtn').style.display='none';
+  hydrateInvoice(); show('invoice');
+}
+function openInvoice(id){
+  const inv=invoices.find(i=>i.id===id); if(!inv) return;
+  editing=JSON.parse(JSON.stringify(inv));
+  $('invEditTitle').textContent='Invoice '+inv.number; $('invDelBtn').style.display='block';
+  hydrateInvoice(); show('invoice');
+}
+function hydrateInvoice(){
+  $('invCustomer').innerHTML=customerOptions(editing.customerId);
+  $('invDate').value=editing.date; $('invDue').value=editing.dueDate||''; $('invNo').value=editing.number; $('invRef').value=editing.ref||'';
+  $('invSite').value=editing.siteAddress||''; $('invNote').value=editing.note||''; $('invPaid').checked=!!editing.paid;
+  renderLines(); renderTotalsBar();
+}
+function onCustomerPick(){
+  const id=$('invCustomer').value; const c=custById(id);
+  editing.customerId=id; editing.customerName=c?c.name:'';
+  // apply the customer's CIS default to any lines still at zero (don't stamp over ones the user set)
+  const r=defaultCisRate();
+  editing.lines.forEach(l=>{ if(!l.cisRate) l.cisRate=r; });
+  renderLines(); renderTotalsBar();
+}
+function renderLines(){
+  const vatOn=biz.vatRegistered;
+  $('invLines').innerHTML=editing.lines.map((l,i)=>{
+    const c=lineCalc(l);
+    return `<div class="linecard" data-i="${i}">
+      ${editing.lines.length>1?`<button class="del" onclick="removeLine(${i})">×</button>`:''}
+      <input type="text" class="ldesc" placeholder="Description (e.g. 1 day labour, CP12)" value="${escAttr(l.desc)}">
+      <div class="linegrid">
+        <div class="mini"><span class="lb">Qty</span><input type="text" inputmode="decimal" class="lqty" value="${l.qty}"></div>
+        <div class="mini"><span class="lb">Unit price £</span><input type="text" inputmode="decimal" class="lprice amt-in" value="${l.unitPrice||''}"></div>
+        <div class="mini"><span class="lb">CIS %</span><input type="text" inputmode="decimal" class="lcis amt-in" value="${l.cisRate?round2(l.cisRate*100):''}" placeholder="0"></div>
+        ${vatOn?`<div class="mini"><span class="lb">VAT %</span><input type="text" inputmode="decimal" class="lvat amt-in" value="${l.vatRate?round2(l.vatRate*100):''}" placeholder="0"></div>`:''}
+      </div>
+      <div class="linetotal">net ${money(c.net)}${c.vat?` · VAT ${money(c.vat)}`:''}${c.cis?` · CIS −${money(c.cis).slice(1)}`:''} · line ${money(c.total)}</div>
+    </div>`;
+  }).join('');
+  $('invLines').querySelectorAll('.linecard').forEach(card=>{
+    const i=+card.dataset.i;
+    const upd=()=>{ const l=editing.lines[i];
+      l.desc=card.querySelector('.ldesc').value;
+      l.qty=parseFloat(card.querySelector('.lqty').value)||0;
+      l.unitPrice=parseFloat(card.querySelector('.lprice').value)||0;
+      l.cisRate=(parseFloat(card.querySelector('.lcis').value)||0)/100;
+      const vv=card.querySelector('.lvat'); if(vv) l.vatRate=(parseFloat(vv.value)||0)/100;
+      const c=lineCalc(l);
+      card.querySelector('.linetotal').innerHTML=`net ${money(c.net)}${c.vat?` · VAT ${money(c.vat)}`:''}${c.cis?` · CIS −${money(c.cis).slice(1)}`:''} · line ${money(c.total)}`;
+      renderTotalsBar();
+    };
+    card.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',upd));
+  });
+}
+function addLine(){ editing.lines.push(blankLine()); renderLines(); renderTotalsBar(); }
+function removeLine(i){ editing.lines.splice(i,1); if(!editing.lines.length) editing.lines.push(blankLine()); renderLines(); renderTotalsBar(); }
+function renderTotalsBar(){
+  const t=invoiceTotals(editing);
+  let h=`<div class="tr"><span>Subtotal</span><span class="v">${money(t.subtotal)}</span></div>`;
+  if(biz.vatRegistered||t.vatTotal) h+=`<div class="tr"><span>VAT</span><span class="v">${money(t.vatTotal)}</span></div>`;
+  if(t.cisTotal) h+=`<div class="tr"><span>CIS deduction</span><span class="v">−${money(t.cisTotal).slice(1)}</span></div>`;
+  h+=`<div class="tr due"><span>Amount due</span><span class="v">${money(t.amountDue)}</span></div>`;
+  $('totalsBar').innerHTML=h;
+}
+function saveInvoice(){
+  if(!editing.customerId){ alert('Please choose a customer.'); return; }
+  editing.date=$('invDate').value||todayISO(); editing.dueDate=$('invDue').value||'';
+  editing.number=($('invNo').value||'').trim()||String(counter); editing.ref=$('invRef').value.trim();
+  editing.siteAddress=$('invSite').value.trim(); editing.note=$('invNote').value.trim(); editing.paid=$('invPaid').checked;
+  editing.lines=editing.lines.filter(l=>l.desc||l.unitPrice); if(!editing.lines.length){ alert('Add at least one line.'); return; }
+  if(!editing.id){ editing.id=uid(); invoices.push(editing); const n=parseInt(editing.number,10); if(!isNaN(n)&&n>=counter){ counter=n+1; save(K.ctr,counter); } }
+  else { const idx=invoices.findIndex(i=>i.id===editing.id); if(idx>=0) invoices[idx]=editing; }
+  save(K.inv, invoices);
+  lastSaved=editing; const t=invoiceTotals(editing);
+  $('savedSummary').innerHTML=`${esc(editing.customerName)} · ${money(t.amountDue)}<br>Invoice no. ${esc(editing.number)}`;
+  show('saved');
+}
+function deleteInvoice(){ if(!editing.id||!confirm('Delete this invoice?')) return; invoices=invoices.filter(i=>i.id!==editing.id); save(K.inv,invoices); show('home'); }
+
+/* ---- customers ---- */
+function renderCustomers(){
+  const el=$('custList');
+  if(!customers.length){ el.innerHTML=`<div class="empty"><div class="big">No customers yet</div>Add one so you can invoice them.</div>`; return; }
+  el.innerHTML=[...customers].sort((a,b)=>a.name.localeCompare(b.name)).map(c=>`<div class="row-item" onclick="editCustomer('${c.id}')"><div><div class="who">${esc(c.name)}${c.cis?'<span class="cis-badge">CIS</span>':''}</div>${c.phone?`<div class="sub">${esc(c.phone)}</div>`:''}</div><span>›</span></div>`).join('');
+}
+function editCustomer(id){
+  custReturn = ($('v-invoice').classList.contains('on')) ? 'invoice' : 'customers';
+  editingCustomerId=id; const c=id?custById(id):null;
+  $('custEditTitle').textContent=c?'Edit customer':'Add customer';
+  $('custName').value=c?c.name:''; $('custPhone').value=c?(c.phone||''):''; $('custAddress').value=c?(c.address||''):'';
+  $('custCis').checked=c?!!c.cis:false; $('custCisRate').value=c&&c.cisRate?String(c.cisRate):'0.2'; toggleCisRate();
+  $('custDelBtn').style.display=c?'block':'none';
+  show('customerEdit');
+}
+function cancelCustomer(){ show(custReturn==='invoice'?'invoice':'customers'); }
+function toggleCisRate(){ $('cisRateWrap').style.display=$('custCis').checked?'block':'none'; }
+function saveCustomer(){
+  const name=$('custName').value.trim(); if(!name){ alert('Please enter a name.'); return; }
+  const data={ name, phone:$('custPhone').value.trim(), address:$('custAddress').value.trim(), cis:$('custCis').checked, cisRate:parseFloat($('custCisRate').value)||0.2 };
+  let savedId=editingCustomerId;
+  if(editingCustomerId){ Object.assign(custById(editingCustomerId), data); }
+  else { data.id=uid(); customers.push(data); savedId=data.id; }
+  save(K.cust, customers);
+  if(custReturn==='invoice' && editing){ editing.customerId=savedId; editing.customerName=name; hydrateInvoice(); onCustomerPick(); show('invoice'); }
+  else show('customers');
+}
+function deleteCustomer(){ if(!editingCustomerId||!confirm('Delete this customer? Past invoices stay.')) return; customers=customers.filter(c=>c.id!==editingCustomerId); save(K.cust,customers); show('customers'); }
+
+/* ---- settings + logos ---- */
+function loadSettings(){
+  $('bizName').value=biz.name||''; $('bizAddress').value=biz.address||''; $('bizPhone').value=biz.phone||''; $('bizEmail').value=biz.email||'';
+  $('bizUtr').value=biz.utr||''; $('bizGasSafe').value=biz.gasSafeNo||''; $('bizIdCard').value=biz.idCardNo||'';
+  $('bizVatReg').checked=!!biz.vatRegistered; $('bizVatNo').value=biz.vatNumber||''; toggleVatReg();
+  $('bizBankName').value=biz.bankName||''; $('bizBankSort').value=biz.bankSort||''; $('bizBankAcc').value=biz.bankAccount||'';
+  renderLogoPrev(1); renderLogoPrev(2);
+}
+function toggleVatReg(){ $('vatNoWrap').style.display=$('bizVatReg').checked?'block':'none'; }
+function renderLogoPrev(n){
+  const data=biz['logo'+n]; const prev=$('logo'+n+'prev'); const clr=$('logo'+n+'clear');
+  if(data){ prev.innerHTML=`<img src="${data}" alt="logo ${n}">`; clr.style.display='inline-flex'; }
+  else { prev.innerHTML=`<span class="ph">▢</span>`; clr.style.display='none'; }
+}
+function compressImage(file,maxDim,quality,type){
+  return new Promise((res,rej)=>{ const img=new Image(); const url=URL.createObjectURL(file);
+    img.onload=()=>{ URL.revokeObjectURL(url); let w=img.width,h=img.height; const s=Math.min(1,maxDim/Math.max(w,h)); w=Math.round(w*s); h=Math.round(h*s);
+      const c=document.createElement('canvas'); c.width=w; c.height=h; c.getContext('2d').drawImage(img,0,0,w,h);
+      try{ res(c.toDataURL(type||'image/png',quality||0.85)); }catch(e){ rej(e); } };
+    img.onerror=()=>{ URL.revokeObjectURL(url); rej(new Error('bad image')); }; img.src=url; });
+}
+async function onLogo(ev,n){
+  const f=ev.target.files&&ev.target.files[0]; if(!f) return;
+  try{ biz['logo'+n]=await compressImage(f,500,0.9,'image/png'); save(K.biz,biz); renderLogoPrev(n); }
+  catch(e){ alert('Could not read that image — try another.'); }
+  ev.target.value='';
+}
+function clearLogo(n){ biz['logo'+n]=''; save(K.biz,biz); renderLogoPrev(n); }
+function saveSettings(){
+  biz.name=$('bizName').value.trim(); biz.address=$('bizAddress').value.trim(); biz.phone=$('bizPhone').value.trim(); biz.email=$('bizEmail').value.trim();
+  biz.utr=$('bizUtr').value.trim(); biz.gasSafeNo=$('bizGasSafe').value.trim(); biz.idCardNo=$('bizIdCard').value.trim();
+  biz.vatRegistered=$('bizVatReg').checked; biz.vatNumber=$('bizVatNo').value.trim();
+  biz.bankName=$('bizBankName').value.trim(); biz.bankSort=$('bizBankSort').value.trim(); biz.bankAccount=$('bizBankAcc').value.trim();
+  save(K.biz,biz); alert('Saved.'); show('menu');
+}
+
+/* ---- print / share ---- */
+function invoiceDocHTML(inv){
+  const c=custById(inv.customerId)||{name:inv.customerName}; const t=invoiceTotals(inv); const vatOn=biz.vatRegistered;
+  const rows=inv.lines.map((l,i)=>{ const lc=lineCalc(l);
+    return `<tr><td class="l">${i+1}</td><td class="l">${esc(l.desc||'')}</td><td>${round2(l.qty)}</td><td>${money(l.unitPrice)}</td>
+      <td>${round2((l.vatRate||0)*100)}</td><td>${money(lc.vat)}</td><td>${round2((l.cisRate||0)*100)}</td><td>${lc.cis?'−'+money(lc.cis).slice(1):money(0)}</td><td>${money(lc.total)}</td></tr>`; }).join('');
+  const logos = (biz.logo1||biz.logo2) ? `<div class="logos"><span>${biz.logo1?`<img src="${biz.logo1}">`:''}</span><span>${biz.logo2?`<img src="${biz.logo2}">`:''}</span></div>` : '';
+  const bank = (biz.bankName||biz.bankAccount) ? `Payment:\n${biz.bankName||''}${biz.bankSort?'\nSort code '+biz.bankSort:''}${biz.bankAccount?'\nAccount '+biz.bankAccount:''}` : '';
+  const notes = [bank, inv.note].filter(Boolean).join('\n\n');
+  return `<div class="inv-doc">
+    ${logos}
+    <div class="head">
+      <div><h1>Invoice: #${esc(inv.number)}</h1>
+        ${inv.ref?`<div><strong>Ref:</strong> ${esc(inv.ref)}</div>`:''}
+        <div><strong>Date:</strong> ${fmtDate(inv.date)}</div>
+        ${inv.dueDate?`<div><strong>Due:</strong> ${fmtDate(inv.dueDate)}</div>`:''}
+        <div style="margin-top:6px"><span class="status ${inv.paid?'paid':'unpaid'}">${inv.paid?'PAID':'UNPAID'}</span></div>
+      </div>
+      <div class="biz"><strong>${esc(biz.name||'')}</strong>${biz.address?'<br>'+esc(biz.address).replace(/\n/g,'<br>'):''}${biz.phone?'<br>Tel: '+esc(biz.phone):''}${biz.email?'<br>'+esc(biz.email):''}${biz.gasSafeNo?'<br>Gas Safe Reg No.: '+esc(biz.gasSafeNo):''}${biz.idCardNo?'<br>ID Card No: '+esc(biz.idCardNo):''}${vatOn&&biz.vatNumber?'<br>VAT No: '+esc(biz.vatNumber):''}</div>
+    </div>
+    <div class="parties">
+      <div class="blk"><strong>Bill To:</strong>${esc(c.name||'')}${c.address?'<br>'+esc(c.address).replace(/\n/g,'<br>'):''}${c.phone?'<br>'+esc(c.phone):''}</div>
+      ${inv.siteAddress?`<div class="blk site"><strong>Site address:</strong>${esc(inv.siteAddress).replace(/\n/g,'<br>')}</div>`:''}
+    </div>
+    <table>
+      <thead><tr><th class="l">#</th><th class="l">Description</th><th>Qty</th><th>Unit £</th><th>VAT %</th><th>VAT £</th><th>CIS %</th><th>CIS £</th><th>Total £</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="totals">
+      <div class="tr"><span>Subtotal</span><span>${money(t.subtotal)}</span></div>
+      <div class="tr"><span>VAT total</span><span>${money(t.vatTotal)}</span></div>
+      <div class="tr"><span>CIS deduction</span><span>${t.cisTotal?'−'+money(t.cisTotal).slice(1):money(0)}</span></div>
+      <div class="tr due"><span>Amount Due</span><span>${money(t.amountDue)}</span></div>
+    </div>
+    ${notes?`<div class="notes">${esc(notes)}</div>`:''}
+  </div>`;
+}
+function printCurrent(){ if(!lastSaved) return; $('print-area').innerHTML=invoiceDocHTML(lastSaved); window.print(); }
+function copyInvoiceText(){
+  if(!lastSaved) return; const inv=lastSaved; const t=invoiceTotals(inv);
+  let s=`INVOICE #${inv.number} — ${fmtDate(inv.date)}\n${biz.name}\n\nTo: ${inv.customerName}\n\n`;
+  inv.lines.forEach(l=>{ const lc=lineCalc(l); s+=`${l.desc||''} — ${l.qty} × ${money(l.unitPrice)} = ${money(lc.net)}\n`; });
+  s+=`\nSubtotal ${money(t.subtotal)}`; if(t.vatTotal) s+=`\nVAT ${money(t.vatTotal)}`; if(t.cisTotal) s+=`\nCIS −${money(t.cisTotal).slice(1)}`;
+  s+=`\nAmount Due ${money(t.amountDue)}\n`;
+  navigator.clipboard&&navigator.clipboard.writeText(s).then(()=>alert('Invoice copied — paste into a message.'),()=>{});
+}
+
+/* ---- export ---- */
+function buildExport(){
+  return { app:'InvoicePad', version:2, exportedAt:new Date().toISOString(),
+    business:{ name:biz.name, phone:biz.phone, address:biz.address, email:biz.email, utr:biz.utr, gasSafeNo:biz.gasSafeNo, idCardNo:biz.idCardNo, vatRegistered:biz.vatRegistered, vatNumber:biz.vatNumber },
+    customers:customers.map(c=>({id:c.id,name:c.name,phone:c.phone||'',address:c.address||'',cis:!!c.cis,cisRate:c.cisRate||0.2})),
+    invoices:invoices.map(i=>{ const t=invoiceTotals(i);
+      return { id:i.id, number:i.number, ref:i.ref||'', date:i.date, dueDate:i.dueDate||'', paid:!!i.paid, customerId:i.customerId, customerName:i.customerName, siteAddress:i.siteAddress||'',
+        lines:i.lines.map(l=>{ const lc=lineCalc(l); return { desc:l.desc, qty:l.qty, unitPrice:l.unitPrice, vatRate:l.vatRate||0, cisRate:l.cisRate||0, net:lc.net, vat:lc.vat, cis:lc.cis, total:lc.total }; }),
+        subtotal:t.subtotal, vatTotal:t.vatTotal, cisTotal:t.cisTotal, amountDue:t.amountDue, note:i.note||'' }; }) };
+}
+async function doExport(){
+  if(!invoices.length){ alert('No invoices to send yet.'); return; }
+  const json=JSON.stringify(buildExport()); const fname=`invoices_${(biz.name||'business').replace(/[^a-z0-9]+/gi,'_')}_${todayISO()}.json`;
+  const file=new File([json],fname,{type:'application/json'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){ try{ await navigator.share({files:[file],title:'Invoices for bookkeeper'}); return; }catch(e){} }
+  const blob=new Blob([json],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  alert('Saved a file: '+fname+'\nPut it in the shared folder for the office.');
+}
+
+/* ---- escaping ---- */
+function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function escAttr(s){ return String(s==null?'':s).replace(/"/g,'&quot;'); }
+
+/* ---- init ---- */
+renderInvoices();
+</script>
+</body>
+</html>
